@@ -10,6 +10,7 @@ import StatsBand from "@/components/StatsBand";
 
 import { site } from "@/lib/data/site";
 import ScrollRevealHeading from "@/components/ScrollRevealHeading";
+import AnimatedGridBackground from "@/components/Animatedgridbackground";
 
 export const metadata: Metadata = {
   title: `${site.name} — Web, Software, AI/ML & Research Engineering Studio`,
@@ -35,7 +36,11 @@ export default function HomePage() {
       <BigMarquee label="Engineered with intent" />
       <TeamGrid />
       <Testimonials />
+      
       <StatsBand />
+      <section className="relative overflow-hidden bg-black h-screen">
+        <AnimatedGridBackground></AnimatedGridBackground>
+      </section>
     </>
   );
 }

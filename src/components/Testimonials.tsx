@@ -6,6 +6,8 @@ import { gsap } from "gsap";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { testimonials } from "@/lib/data/team";
 import Reveal from "@/components/Reveal";
+import AnimatedGridBackground from "./Animatedgridbackground";
+
 
 const AUTOPLAY_MS = 3000;
 
@@ -61,7 +63,9 @@ export default function Testimonials() {
   const current = testimonials[index];
 
   return (
-    <section className="content-shell py-24 md:py-32">
+    <section className="black-section">
+      <div className="content-shell py-24 md:py-32">
+      <AnimatedGridBackground></AnimatedGridBackground>
       <Reveal className="mb-12 flex items-end justify-between">
         <div>
           <p className="text-xl text-accent mb-4">Client feedback</p>
@@ -86,7 +90,7 @@ export default function Testimonials() {
       </Reveal>
 
       <div
-        className="relative overflow-hidden rounded-lg border border-line bg-surface p-8 md:p-14"
+        className="glass-card p-8 md:p-14"
         onMouseEnter={() => (hoveringRef.current = true)}
         onMouseLeave={() => (hoveringRef.current = false)}
       >
@@ -133,6 +137,7 @@ export default function Testimonials() {
           </button>
         </div>
       </div>
+    </div>
     </section>
   );
 }
