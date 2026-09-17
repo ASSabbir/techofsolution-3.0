@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+
+
+/* ───────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS — the one place to re-theme the entire site.
+   Every color, font and radius below is exposed as a Tailwind utility
+   automatically (e.g. --color-accent → bg-accent / text-accent / border-accent).
+   ─────────────────────────────────────────────────────────────────────── */
+@theme {
+  /* Surfaces — graphite-navy, never pure black */
+  --color-ink: #0e1116;
+  --color-surface: #171b22;
+  --color-surface-2: #1f242d;
+  --color-surface-3: #272d38;
+  --color-line: rgba(255, 255, 255, 0.09);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
+
+  /* Foreground */
+  --color-fg: #ecedef;
+  --color-fg-dim: #c7cbd1;
+  --color-muted: #8b93a1;
+  --color-faint: #565d6b;
+
+  /* Brand accent — warm brass, evokes precision instruments, not a SaaS blue */
+  --color-accent: #c89b4a;
+  --color-accent-soft: #e3c07f;
+  --color-accent-ink: #2a2114;
+  --color-aqua: #21707F;
+
+  /* Secondary signal accent — used sparingly (status dots, small highlights) */
+  --color-signal: #6fe3c4;
+
+  /* Fonts (wired to next/font variables set on <html>) */
+  --font-inter: "Inter", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+
+   /* Radii — sharper on data/UI, softer on imagery, by design not accident */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --container-content: 1400px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    background: var(--color-ink);
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .content-shell {
+    width: 100%;
+    max-width: var(--container-content);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  /* Opt a section into the light half of the palette. Every utility class
+     inside (text-fg, bg-surface, border-line, text-accent...) picks this
+     up automatically because they all read from these same variables. */
+  .section-light {
+    --color-ink: #eef0f2;
+    --color-surface: #ffffff;
+    --color-surface-2: #f4f5f7;
+    --color-surface-3: #e9eaed;
+    --color-line: rgba(10, 12, 16, 0.09);
+    --color-line-strong: rgba(10, 12, 16, 0.15);
+    --color-fg: #12141a;
+    --color-fg-dim: #40454e;
+    --color-muted: #676e79;
+    --color-faint: #9aa0aa;
+    --color-accent: #9c6b1f;
+    --color-accent-soft: #b9873a;
+    background: var(--color-ink);
+    color: var(--color-fg);
+  }
+
+  /* Fades the edges of any horizontally-scrolling / marquee row */
+  .edge-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
