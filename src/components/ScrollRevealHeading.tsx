@@ -35,7 +35,7 @@ export default function ScrollRevealHeading({
   as = 'h1',
   baseColor = '#52525b', // zinc-600
   revealColor = '#fafafa', // zinc-50
-  accentColor = '#60a5fa', // blue-400
+  accentColor = '#21707F', // blue-400
 }: ScrollRevealHeadingProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);

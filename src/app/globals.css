@@ -2,7 +2,13 @@
 @import "tailwindcss";
 
 
-
+@font-face {
+  font-family: "Fringe";
+  src: url("/HOOKRIDE.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 /* ───────────────────────────────────────────────────────────────────────
    DESIGN TOKENS — the one place to re-theme the entire site.
    Every color, font and radius below is exposed as a Tailwind utility
@@ -37,6 +43,8 @@
   --font-dm-sans: "DM Sans", sans-serif;
   --font-poppins: "Poppins", sans-serif;
   --font-manrope: "Manrope", sans-serif;
+   --font-fringe: "Fringe", sans-serif;
+
   --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 
@@ -121,7 +129,7 @@
      inside (text-fg, bg-surface, border-line, text-accent...) picks this
      up automatically because they all read from these same variables. */
   .section-light {
-    --color-ink: #eef0f2;
+    --color-ink: #E4E2DD;
     --color-surface: #ffffff;
     --color-surface-2: #f4f5f7;
     --color-surface-3: #e9eaed;

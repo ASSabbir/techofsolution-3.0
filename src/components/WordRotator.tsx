@@ -51,7 +51,7 @@ export default function WordRotator({
     <span ref={wrapRef} className="relative inline-block overflow-hidden pr-5 align-bottom">
       <span ref={trackRef} className="flex flex-col will-change-transform">
         {words.map((word, i) => (
-          <span key={i} className="block font-medium italic text-accent">
+          <span key={i} className="block font-medium  text-aqua">
             {word}
           </span>
         ))}

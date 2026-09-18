@@ -108,11 +108,8 @@ export default function HeroVisualSlider({
 
   return (
     <div
-      className={`relative w-full h-full overflow-hidden rounded-[28px] ${className}`}
-      style={{
-        WebkitMaskImage: MASK,
-        maskImage: MASK,
-      }}
+      className={`relative w-full h-full overflow-hidden r ${className}`}
+      
     >
       {/* soft ambient glow behind the stack — helps it feel like light
           emerging from the scene rather than an image pasted on top */}

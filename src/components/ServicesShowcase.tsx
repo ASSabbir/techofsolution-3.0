@@ -4,34 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image, { type StaticImageData } from "next/image";
 import { gsap } from "gsap";
-import {
-  Globe,
-  Cpu,
-  FlaskConical,
-  Layers,
-  BarChart3,
-  ArrowUpRight,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/data/services";
-import imgDefault from '../../public/Img/sd.webp'
-import img1 from '../../public/Img/img2.png'
-import img2 from '../../public/Img/img2.png'
-import img3 from '../../public/Img/img3.png'
-import img4 from '../../public/Img/img2.png'
-import img5 from '../../public/Img/img2.png'
+import imgDefault from "../../public/Img/img2.png";
+import img1 from "../../public/Img/img5.png";
+import img2 from "../../public/Img/img4.png";
+import img3 from "../../public/Img/img5.png";
+import img4 from "../../public/Img/img4.png";
+import img5 from "../../public/Img/img2.png";
 
 // Order must match the services array — services[0] gets serviceImages[0], etc.
-// Swap these five files in /public/Img for your real per-service images.
 const serviceImages = [img1, img2, img3, img4, img5];
-
-const icons: Record<string, LucideIcon> = {
-  globe: Globe,
-  cpu: Cpu,
-  flask: FlaskConical,
-  layers: Layers,
-  chart: BarChart3,
-};
 
 const BG_TRANSITION_MS = 700;
 
@@ -65,17 +48,17 @@ function BgLayer({ src, eager = false }: { src: StaticImageData; eager?: boolean
 export default function ServicesShowcase() {
   const [active, setActive] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const bgWrapperRef = useRef<HTMLDivElement | null>(null);
   const pillRef = useRef<HTMLDivElement | null>(null);
   const quickX = useRef<gsap.QuickToFunc | null>(null);
   const quickY = useRef<gsap.QuickToFunc | null>(null);
   const reduceMotion = useRef(false);
 
-  // Background layers stack incrementally: each hover pushes a new layer on
-  // top, older layers stay fully opaque underneath (never faded out), so
-  // there's always continuous coverage and nothing can flash through
-  // mid-transition. Once a layer finishes fading in, everything below it is
-  // pruned since it's no longer visible anyway.
+  // Right-side detail panels (one per service) + which one is currently shown
+  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const shownRef = useRef<number | null>(null);
+
+  // Background layers stack incrementally (see previous notes): older layers
+  // stay opaque underneath, and get pruned once the top one has faded in.
   const [bgLayers, setBgLayers] = useState<{ src: StaticImageData; id: number }[]>([
     { src: imgDefault, id: 0 },
   ]);
@@ -94,37 +77,13 @@ export default function ServicesShowcase() {
   };
 
   useEffect(() => {
+    reduceMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     return () => {
       if (pruneTimeout.current) clearTimeout(pruneTimeout.current);
     };
   }, []);
 
-  // Lock the background wrapper to the section's natural (collapsed) height,
-  // measured once on mount and re-measured only on window resize — never on
-  // hover. The accordion reveal still changes the section's real height same
-  // as before; the background just no longer tracks it, so it never
-  // stretches/zooms during that transition. If an expanded row pushes the
-  // section taller than this measured height, the extra sliver at the bottom
-  // simply shows the plain section background instead of the image — no
-  // distortion, which is the trade-off that fixes the zoom.
-  useEffect(() => {
-    const section = sectionRef.current;
-    const bgWrapper = bgWrapperRef.current;
-    if (!section || !bgWrapper) return;
-
-    const setHeight = () => {
-      bgWrapper.style.height = `${section.offsetHeight}px`;
-    };
-
-    setHeight();
-    window.addEventListener("resize", setHeight);
-    return () => window.removeEventListener("resize", setHeight);
-  }, []);
-
   const ensureQuick = () => {
-    if (typeof window !== "undefined") {
-      reduceMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    }
     if (!pillRef.current || reduceMotion.current) return;
     if (!quickX.current) {
       quickX.current = gsap.quickTo(pillRef.current, "x", { duration: 0.5, ease: "power3.out" });
@@ -145,20 +104,74 @@ export default function ServicesShowcase() {
     }
   };
 
+  // ---- Right panel animations (GSAP) ----
+  const showPanel = (i: number) => {
+    const el = panelRefs.current[i];
+    if (!el) return;
+    const tags = el.querySelectorAll("[data-tag]");
+    const rm = reduceMotion.current;
+
+    gsap.killTweensOf([el, tags]);
+
+    // Panel slides in from the left
+    gsap.fromTo(
+      el,
+      { x: rm ? 0 : -48, autoAlpha: 0 },
+      { x: 0, autoAlpha: 1, duration: rm ? 0 : 0.6, ease: "power3.out" }
+    );
+
+    // Tags follow with a small stagger
+    gsap.fromTo(
+      tags,
+      { x: rm ? 0 : -24, autoAlpha: 0 },
+      {
+        x: 0,
+        autoAlpha: 1,
+        duration: rm ? 0 : 0.5,
+        ease: "power3.out",
+        stagger: 0.06,
+        delay: rm ? 0 : 0.12,
+      }
+    );
+  };
+
+  const hidePanel = (i: number) => {
+    const el = panelRefs.current[i];
+    if (!el) return;
+    const tags = el.querySelectorAll("[data-tag]");
+    gsap.killTweensOf([el, tags]);
+    gsap.to(el, {
+      x: reduceMotion.current ? 0 : -20,
+      autoAlpha: 0,
+      duration: reduceMotion.current ? 0 : 0.25,
+      ease: "power2.in",
+    });
+  };
+
   const enter = (i: number) => {
     setActive(i);
     pushBackground(serviceImages[i] ?? serviceImages[serviceImages.length - 1]);
+
+    const prev = shownRef.current;
+    if (prev !== i) {
+      if (prev !== null) hidePanel(prev);
+      showPanel(i);
+      shownRef.current = i;
+    }
+
     if (pillRef.current && !reduceMotion.current) {
       gsap.to(pillRef.current, { opacity: 1, scale: 1, duration: 0.35, ease: "power3.out" });
     }
   };
 
-  // Only resets hover/dim state and the cursor pill. The background is left
-  // alone — once you've hovered a service, its image stays as the new
-  // "default" until you hover another one. A full page reload resets it back
-  // to imgDefault.
+  // Resets hover/dim state, hides the panel and the cursor pill.
+  // The background is intentionally left as-is.
   const leave = () => {
     setActive(null);
+    if (shownRef.current !== null) {
+      hidePanel(shownRef.current);
+      shownRef.current = null;
+    }
     if (pillRef.current) {
       gsap.to(pillRef.current, { opacity: 0, scale: 0.7, duration: 0.25, ease: "power2.in" });
     }
@@ -169,37 +182,31 @@ export default function ServicesShowcase() {
       ref={sectionRef}
       onMouseMove={onMove}
       onMouseLeave={leave}
-      className=" relative isolate overflow-hidden"
+      className="relative isolate overflow-hidden"
       style={{
         backgroundImage:
           "radial-gradient(500px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(156,107,31,0.08), transparent 70%)",
       }}
     >
-      {/* Background images — fixed-height wrapper so hover-driven row growth
-          never resizes/zooms the image. */}
-      <div
-        ref={bgWrapperRef}
-        className="absolute inset-x-0 top-0 -z-20 overflow-hidden"
-        aria-hidden="true"
-      >
+      {/* Background images — the section height is now constant on hover,
+          so the wrapper can simply fill the section (no JS height lock needed). */}
+      <div className="absolute inset-0 -z-20 overflow-hidden" aria-hidden="true">
         {bgLayers.map((layer, idx) => (
           <BgLayer key={layer.id} src={layer.src} eager={idx === 0} />
         ))}
-        {/* White overlay so the image sits subtly behind the light theme content */}
         <div className="absolute inset-0 bg-white/40" />
       </div>
 
       <div className="content-shell py-24 md:py-32">
         <div className="max-w-2xl">
           <p className="text-xl text-aqua mb-4">What we do</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-dm-sans tracking- text-zinc-800 font-semibold text-balance">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-dm-sans tracking-tight text-zinc-800 font-semibold text-balance">
             Five disciplines, one engineering team.
           </h2>
         </div>
 
         <div className="mt-14 border-t border-gray-500">
           {services.map((service, i) => {
-            const Icon = icons[service.icon];
             const isActive = active === i;
             const isDimmed = active !== null && !isActive;
             return (
@@ -207,42 +214,44 @@ export default function ServicesShowcase() {
                 key={service.slug}
                 href={`/services/${service.slug}`}
                 onMouseEnter={() => enter(i)}
-                className={`group relative flex flex-col text-zinc-800 gap-4 border-b border-gray-500 py-8 transition-opacity duration-300 md:flex-row md:items-center md:justify-between md:gap-6 md:py-10 ${
+                className={`group relative flex items-center border-b border-gray-500 py-8 text-zinc-800 transition-opacity duration-300 md:py-20 ${
                   isDimmed ? "opacity-40" : "opacity-100"
                 }`}
               >
-                <div className="flex items-start gap-5 md:items-center md:gap-8">
+                {/* Left: number + title (fixed height, never grows) */}
+                <div className="flex items-start gap-5 md:max-w-[58%] md:items-center md:gap-8">
                   <span className="pt-1.5 font-display text-xl text-zinc-800 md:pt-0">
                     0{i + 1}
                   </span>
-                  <div>
-                    <h3 className="font-dm text-3xl font-semibold leading-tight transition-colors duration-300 sm:text-4xl md:text-5xl text-zinc-800 group-hover:text-aqua">
-                      {service.name}
-                    </h3>
-                    <div className="grid transition-all duration-500 ease-out grid-rows-[0fr] group-hover:grid-rows-[1fr]">
-                      <div className="overflow-hidden">
-                        <p className="max-w-md pt-3 text-lg text-zinc-800">{service.summary}</p>
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {service.offerings.map((o) => (
-                            <span
-                              key={o.title}
-                              className="rounded-full px-4 py-1 text-sm bg-aqua text-white"
-                            >
-                              {o.title}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <h3 className="font-dm text-3xl font-semibold leading-tight transition-colors duration-300 sm:text-4xl md:text-5xl text-zinc-800 group-hover:text-aqua">
+                    {service.name}
+                  </h3>
                 </div>
 
-                <div className="flex shrink-0 items-center gap-4 self-end md:self-auto">
-                  <Icon size={20} className="hidden text-aqua sm:block" />
-                  <ArrowUpRight
-                    size={24}
-                    className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-aqua"
-                  />
+                {/* Right: description + tags. Absolutely positioned, so it
+                    adds ZERO height to the row. Slides in from the left via GSAP. */}
+                <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[40%] items-center md:flex">
+                  <div
+                    ref={(el) => {
+                      panelRefs.current[i] = el;
+                    }}
+                    className="w-full"
+                    style={{ opacity: 0, visibility: "hidden" }}
+                  >
+                    <p className="text-lg text-zinc-800">{service.summary}</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {service.offerings.map((o) => (
+                        <span
+                          key={o.title}
+                          data-tag
+                          className="rounded-full bg-aqua px-4 py-1 text-sm text-white"
+                          style={{ opacity: 0, visibility: "hidden" }}
+                        >
+                          {o.title}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </Link>
             );
@@ -250,7 +259,7 @@ export default function ServicesShowcase() {
         </div>
       </div>
 
-      {/* Cursor-following label — text only, no imagery needed */}
+      {/* Cursor-following label */}
       <div
         ref={pillRef}
         aria-hidden="true"

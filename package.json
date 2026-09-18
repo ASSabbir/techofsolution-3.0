@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
+    "@designcodeio/threeui": "^1.2.0",
     "@gsap/react": "^2.1.2",
     "@vis.gl/react-google-maps": "^1.10.0",
     "class-variance-authority": "^0.7.1",
