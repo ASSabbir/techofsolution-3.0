@@ -41,7 +41,7 @@ export const services: Service[] = [
       {
         title: "Performance by default",
         detail: "Every site is benchmarked against Core Web Vitals before launch, so speed is never something you discover from a customer complaint.",
-        image: "/Img/service/web1.jfif",
+        image: "/Img/service/web1.webp",
         bullets: [
           "Sub-2-second load times on real-world connections, not just lab tests",
           "Automatic image and asset optimization on every deploy",
@@ -51,7 +51,7 @@ export const services: Service[] = [
       {
         title: "Premium by design",
         detail: "Distinctive visuals, refined motion, and thoughtful interactions create digital experiences that stand apart from the ordinary.",
-        image: "/Img/service/web2.jfif",
+        image: "/Img/service/web2.webp",
         bullets: [
           "A visual system built around your brand, never a recycled template",
           "Motion and micro-interactions that feel intentional, not decorative",

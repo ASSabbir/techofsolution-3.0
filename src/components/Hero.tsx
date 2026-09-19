@@ -16,7 +16,7 @@ const words = ["Website", "Software", "Automation", "Research"];
 
 // Same order as `words` above — index i's image shows while word i is active.
 const heroSlides: HeroSlide[] = [
-  { word: "Website", image: "/Img/service/web2.jfif" },
+  { word: "Website", image: "/Img/service/web2.webp" },
   { word: "Software", image: "/Img/service/sof2.webp" },
   { word: "AI / ML", image: "/Img/service/ai1.jpg" },
   { word: "Research", image: "/Img/service/re1.webp" },
