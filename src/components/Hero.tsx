@@ -138,8 +138,7 @@ export default function Hero() {
               duration={ROTATOR_TIMING.duration}
               ease={ROTATOR_TIMING.ease}
               className="mx-auto aspect-[4/3] max-w-sm sm:aspect-[16/9]"
-              rounded
-              edgeFade="all"
+              
             />
           </div>
 
