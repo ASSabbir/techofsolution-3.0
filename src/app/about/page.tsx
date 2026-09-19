@@ -40,7 +40,7 @@ const experience = [
   { title: "Executive Director, Sales & Marketing", company: "BDCOM Online Ltd.", period: "Feb 2010 – Nov 2010 · 10 mos" },
   { title: "Chief Operating Officer", company: "ALAP Communication Ltd.", period: "Feb 2007 – Jan 2010 · 3 yrs" },
 ];
-export const meetings = [
+const meetings = [
   { src: "/Img/atik_al_sabbir.webp", caption: "Kickoff — aligning on scope and goals" },
   { src: "/Img/atik_al_sabbir_with_bix.webp", caption: "Design review with the client team" },
   { src: "/Img/13.webp", caption: "Working session — problem-solving together" },
