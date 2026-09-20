@@ -136,7 +136,7 @@ export default function HeroVisualSlider({
             priority={i === 0}
           />
           {/* blends the image's own edges into the hero video/overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/10" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/10" /> */}
         </div>
       ))}
     </div>

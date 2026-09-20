@@ -97,7 +97,7 @@ export default function Testimonials() {
         <Quote className="text-accent" size={32} />
 
         <div ref={contentRef}>
-          <p className="mt-6 max-w-3xl text-2xl leading-snug text-fg sm:text-3xl md:text-4xl text-balance">
+          <p className="mt-6 max-w-7xl text-2xl leading-snug text-fg sm:text-3xl md:text-4xl text-balance">
             &ldquo;{current.quote}&rdquo;
           </p>
           <div className="mt-8 flex items-center gap-4">

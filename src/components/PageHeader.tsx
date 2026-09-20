@@ -10,13 +10,14 @@ export default function PageHeader({
   description?: string;
 }) {
   return (
-    <section className="content-shell pt-40 pb-16 md:pt-52 md:pb-20">
+    <section className="content-shell bg- pt-30 pb-16  md:pb-20">
       <Reveal>
-        <p className="text-xl text-accent mb-5">{eyebrow}</p>
-        <h1 className="max-w-3xl text-5xl sm:text-6xl md:text-7xl font-dm-sans font-semibold leading-[1.02] text-balance">
+        <p className="text-xl text-aqua mb-5">{eyebrow}</p>
+        <h1 className=" text-5xl sm:text-6xl md:text-8xl font-dm-sans font-semibold leading-[1.02] trackin text-balance">
+          {/* Experience <span className="text-aqua">Driven</span> Innovation. */}
           {title}
         </h1>
-        {description && <p className="mt-6 max-w-3xl text-lg  text-fg-dim">{description}</p>}
+        {description && <p className="mt-6 max-w-3xl text-xl  text-gray-800">{description}</p>}
       </Reveal>
     </section>
   );

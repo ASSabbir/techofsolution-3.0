@@ -12,6 +12,7 @@ import { site } from "@/lib/data/site";
 import ScrollRevealHeading from "@/components/ScrollRevealHeading";
 import AnimatedGridBackground from "@/components/Animatedgridbackground";
 import ScrollExpandVideo from "@/components/Scrollexpandvideo";
+import BigClientsMarquee from "@/components/Bigclientsmarquee";
 
 
 export const metadata: Metadata = {
@@ -28,11 +29,13 @@ export default function HomePage() {
       <ScrollRevealHeading
         text="Tech Of Solution, web-first digital agency building modern, fast, and scalable digital platforms. We develop MERN-based applications and high-impact animated portfolios. Business websites, LMS systems, and e-commerce solutions crafted for performance, usability, and strong SEO."
         highlightWords={['web-first']}
-        className="px-5 md:px-[6vw] py-30 section-light "
-        textClassName="text-4xl md:text-6xl   content-shell font-medium leading-[1.15]"
+        className="px-5 md:px-[6vw] py-10 md:py-20 xl:py-30 section-light "
+        textClassName="text-4xl md:text-5xl xl:text-6xl py-  text-wrap font-medium leading-[1.25]"
         baseColor="#cfcfdb"    // zinc-400 — dim starting state on light bg
         revealColor="#18181b"
       />
+      
+      <BigClientsMarquee  direction="right" speed={50} />
       <ServicesShowcase />
       <ScrollExpandVideo
         src="/Img/0912.mp4"
@@ -40,11 +43,11 @@ export default function HomePage() {
       />
       <BigMarquee label="Engineered with intent" />
       {/* <FeaturedWork /> */}
-      
-      
+
+
       <TeamGrid />
       <Testimonials />
-      
+
 
       <StatsBand />
       {/* <section className="relative overflow-hidden bg-black h-screen">

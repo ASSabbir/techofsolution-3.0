@@ -8,6 +8,7 @@ import StatsBand from "@/components/StatsBand";
 import { team } from "@/lib/data/team";
 import { site } from "@/lib/data/site";
 import MeetingsCarousel from "@/components/MeetingsCarousel";
+import AnimatedGridBackground from "@/components/Animatedgridbackground";
 
 export const metadata: Metadata = {
   title: "About TechOf Solution — Our Story, Mission & Team",
@@ -46,6 +47,7 @@ const meetings = [
   { src: "/Img/13.webp", caption: "Working session — problem-solving together" },
   { src: "/Img/21.jpg", caption: "Progress walkthrough before launch" },
   { src: "/Img/sabbir.webp", caption: "Post-launch check-in" },
+  { src: "/Img/3.PNG", caption: "Post-launch check-in" },
 ];
 
 const achievementImages = [
@@ -58,11 +60,13 @@ const achievementImages = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="About Tech Of Solutions"
-        title="Built with experience. Driven by innovation."
-        description="Tech Of Solutions is a technology company focused on building high-performance websites, software systems, AI solutions, and digital products that solve real business challenges. We combine thoughtful strategy, modern engineering, and purposeful design to turn complex ideas into reliable digital solutions."
-      />
+      <div className="section-light">
+        <PageHeader
+          eyebrow="About Tech Of Solutions"
+          title={`Experience Driven Innovation.`}
+          description="Tech Of Solutions is a technology company focused on building high-performance websites, software systems, AI solutions, and digital products that solve real business challenges. We combine thoughtful strategy, modern engineering, and purposeful design to turn complex ideas into reliable digital solutions."
+        />
+      </div>
 
       {/* <section className="content-shell pb-24 md:pb-32">
         <Reveal>
@@ -70,8 +74,9 @@ export default function AboutPage() {
         </Reveal>
       </section> */}
 
-      <div className="section-light">
+      <div className=" relative">
         <section className="content-shell  grid gap-10 border-t border-line py-20 md:grid-cols-2 md:py-28">
+          <AnimatedGridBackground></AnimatedGridBackground>
           <Reveal className="rounded-lg border border-line bg-surface p-8 md:p-10">
             <h2 className="font-dm-sans text-3xl font-semibold text-aqua">Mission</h2>
             <p className="mt-4 text-fg-dim text-xl">
@@ -189,7 +194,7 @@ export default function AboutPage() {
       <section className="content-shell border-t border-line py-20 md:py-28">
         <Reveal className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
           <div>
-            
+
             <p className="text-xl text-accent mb-4"> Giving Back</p>
 
             <h2 className="font-dm-sans text-3xl md:text-6xl font-semibold leading-tight mb-6">

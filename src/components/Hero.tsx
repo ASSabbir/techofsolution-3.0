@@ -77,7 +77,7 @@ export default function Hero() {
   return (
     <section
       ref={scopeRef}
-      className="relative flex min-h-dvh items-center overflow-hidden bg-[#E4E2DD] text-zinc-900"
+      className="relative flex min-h-dvh pt-40 overflow-hidden bg-[#E4E2DD] text-zinc-900"
     >
       {/* Full-height, 40%-width image panel — this IS the right side of the
           hero now, not a card floating inside it. Desktop only; mobile gets
@@ -96,26 +96,15 @@ export default function Hero() {
         />
       </div>
 
-      {/* Soft glow at the seam between text and the panel — low opacity,
-          sits just left of the panel's edge, not on top of the image itself */}
-      {/* Blend seam — fades the left panel's background color into the image,
-    so the hard edge disappears instead of ending abruptly */}
-      {/* <div
-  aria-hidden="true"
-  className="pointer-events-none !absolute inset-y-0 left-[50%] w-[5%] z-[6] hidden lg:block"
-  style={{
-    background:
-      "linear-gradient(to right, rgb(228 228 231) 0%, rgb(228 228 231 / 0.55) 45%, rgb(228 228 231 / 0) 100%)",
-  }}
-/> */}
+      
 
       {/* Content */}
-      <div className="  z-10 w-full pb-28 px-20  md:pb-62">
+      <div className="  z-10 w-full  px-5 md:px-[6vw]  ">
         <div className="lg:max-w-[100%]">
-          <h1 className="text-[13vw] leading-36 font-black font-fringe text-balance text-zinc-900 sm:text-6xl md:text-7xl lg:text-[10rem]">
+          <h1 className=" xl:leading-36 font-black font-fringe text-balance text-zinc-900 text-6xl md:text-[6rem] lg:text-[7rem] xl:text-[10rem]">
             <span data-hero-in className="block le">
 
-              We design and <br />build{" "}
+              We design  <br /> We build{" "}
               <WordRotator
                 words={words}
                 bus={bus}
@@ -124,7 +113,7 @@ export default function Hero() {
               />
             </span>
             <span data-hero-in className="block">
-              that help companies grow.
+              That moves the world
             </span>
           </h1>
 
@@ -137,13 +126,13 @@ export default function Hero() {
               reduced={reduced}
               duration={ROTATOR_TIMING.duration}
               ease={ROTATOR_TIMING.ease}
-              className="mx-auto aspect-[4/3] max-w-sm sm:aspect-[16/9]"
+              className="lg:mx-auto aspect-[7/3] max-w-sm md:aspect-[10/5] lg:aspect-[16/9]"
               
             />
           </div>
 
-          <div className="absolute bottom-10">
-            <p data-hero-in className="mt-8  max-w-3xl text-2xl font-semibold text-zinc-600">
+          <div className=" lg:absolute bottom-10">
+            <p data-hero-in className="mt-8 lg:max-w-xl xl:max-w-3xl text-xl md:text-2xl font-semibold text-zinc-600">
               From high-performance websites and custom software to AI-powered
               systems and digital products, we engineer technology that turns
               ideas into meaningful experiences, smarter operations, and
@@ -169,8 +158,8 @@ export default function Hero() {
 
               {projectsStat && (
                 <span className="whitespace-nowrap text-xl font-medium text-aqua">
-                  {projectsStat.value}
-                  {projectsStat.suffix} Projects Delivered
+                  100+
+                   Projects Delivered
                 </span>
               )}
             </div>

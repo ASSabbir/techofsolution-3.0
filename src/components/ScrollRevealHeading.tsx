@@ -31,7 +31,7 @@ export default function ScrollRevealHeading({
   text,
   highlightWords = [],
   className = '',
-  textClassName = 'text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.15]',
+  textClassName = 'text-4xl  md:text-5xl lg:text-6xl font-medium leading-[1.15]',
   as = 'h1',
   baseColor = '#52525b', // zinc-600
   revealColor = '#fafafa', // zinc-50
