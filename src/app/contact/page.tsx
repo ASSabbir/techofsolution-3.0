@@ -23,7 +23,7 @@ const details = [
 
 export default function ContactPage() {
   return (
-    <>
+    <section className="section-light">
       <PageHeader
         eyebrow="Contact"
         title="Let's discuss your project."
@@ -49,16 +49,16 @@ export default function ContactPage() {
               )
             )}
           </div>
-       <ContactMap
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d948.7973103248668!2d90.37275936277577!3d23.753752488542258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf0014bff83d%3A0x4f67a47d68e4fb73!2sLabcom%20Technology!5e0!3m2!1sen!2sbd!4v1789083475852!5m2!1sen!2sbd"
-  className="h-64 md:h-80"
-/>
+          <ContactMap
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d948.7973103248668!2d90.37275936277577!3d23.753752488542258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf0014bff83d%3A0x4f67a47d68e4fb73!2sLabcom%20Technology!5e0!3m2!1sen!2sbd!4v1789083475852!5m2!1sen!2sbd"
+            className="h-64 md:h-80"
+          />
         </Reveal>
 
         <Reveal className="relative">
           <ContactForm />
         </Reveal>
       </section>
-    </>
+    </section>
   );
 }

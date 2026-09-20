@@ -30,7 +30,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-6 rounded-lg border border-line bg-surface p-8 sm:p-10">
+    <form onSubmit={onSubmit} className="flex flex-col gap-6 rounded-lg border-3 border-line  bg- p-8 sm:p-10">
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-2 block text-sm text-muted">

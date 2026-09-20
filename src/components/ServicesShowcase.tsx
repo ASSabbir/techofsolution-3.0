@@ -251,9 +251,9 @@ export default function ServicesShowcase() {
     <section className="relative isolate section-light">
       <div className="px-5 py-24 md:px-[6vw] md:py-32">
         <div className="max-w-2xl">
-          <p className="mb-4 text-xl text-accent">What we do</p>
+          <p className="mb-4 text-xl text-aqua">What we do</p>
           <h2 className="font-dm-sans text-balance text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl md:text-6xl">
-            Five disciplines, one engineering team.
+            Services Designed for Business
           </h2>
         </div>
 
@@ -354,7 +354,7 @@ export default function ServicesShowcase() {
       <div
         ref={previewRef}
         aria-hidden="true"
-        className="pointer-events-none fixed left-80 top-0 z-30 hidden h-[180px] w-[200px] overflow-hidden rounded-sm shadow-2xl ring-1 ring-black/10 will-change-transform md:block lg:h-[240px] lg:w-[240px]"
+        className="pointer-events-none fixed left-70 top-0 z-30 hidden h-[180px] w-[200px] overflow-hidden rounded-sm shadow-2xl ring-1 ring-black/10 will-change-transform md:block lg:h-[240px] lg:w-[240px]"
       >
         {serviceImages.slice(0, services.length).map((src, i) => (
           <div

@@ -106,18 +106,12 @@ export default async function ServiceDetailPage({ params }: { params: Params }) 
           </Reveal>
         </div>
       </section>
-
+      
 
       {/* Capabilities */}
       <section className="black-section">
         <AnimatedGridBackground></AnimatedGridBackground>
-        <div className="content-shell py-20 md:py-28">
-          <Reveal className="max-w-xl mb-14">
-            <p className="text-xl text-accent mb-4">Why choose us</p>
-            <h2 className="font-dm text-3xl font-semibold sm:text-6xl">Our capabilities</h2>
-          </Reveal>
-          <CapabilityRows items={service.capabilities} />
-        </div>
+        <CapabilityRows items={service.capabilities} eyebrow="Why choose us" title="Our capabilities" />
       </section>
       {/* Technologies */}
       <div className="section-light">

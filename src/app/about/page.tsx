@@ -74,39 +74,7 @@ export default function AboutPage() {
         </Reveal>
       </section> */}
 
-      <div className=" relative">
-        <section className="content-shell  grid gap-10 border-t border-line py-20 md:grid-cols-2 md:py-28">
-          <AnimatedGridBackground></AnimatedGridBackground>
-          <Reveal className="rounded-lg border border-line bg-surface p-8 md:p-10">
-            <h2 className="font-dm-sans text-3xl font-semibold text-aqua">Mission</h2>
-            <p className="mt-4 text-fg-dim text-xl">
-              To empower people and businesses with transformative, intelligent
-              and future-ready digital solutions, delivered through disciplined
-              engineering and genuine partnership.
-            </p>
-            <ul className="mt-6 space-y-3 text-lg marker:text-aqua list-disc list-inside  text-fg-dim">
-              <li>Deliver reliable, high-quality products tailored to client success.</li>
-              <li>Advance applied work in AI, data science and automation.</li>
-              <li>Support sustainable, ethical ways of building software.</li>
-              <li>Build long-term partnerships across borders.</li>
-            </ul>
-          </Reveal>
-          <Reveal className="rounded-lg border border-line bg-surface p-8 md:p-10">
-            <h2 className="font-display text-3xl font-semibold text-aqua">Vision</h2>
-            <p className="mt-4 text-fg-dim text-xl">
-              To become one of South Asia&rsquo;s most trusted, research-driven
-              technology partners &mdash; shaping how intelligent systems and
-              thoughtful design work together.
-            </p>
-            <ul className="mt-6 space-y-3 text-lg marker:text-aqua list-disc list-inside  text-fg-dim">
-              <li>Earn a reputation for reliability before scale.</li>
-              <li>Lead in applied research, not just implementation.</li>
-              <li>Contribute to Bangladesh&rsquo;s growing technology sector.</li>
-              <li>Mentor the next generation of engineers and researchers.</li>
-            </ul>
-          </Reveal>
-        </section>
-      </div>
+      
 
       <section className="content-shell border-t border-line py-20 md:py-28">
         <Reveal className="max-w-2xl">
@@ -190,7 +158,7 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
-
+{/* 
       <section className="content-shell border-t border-line py-20 md:py-28">
         <Reveal className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
           <div>
@@ -237,7 +205,40 @@ export default function AboutPage() {
             </span>
           </div>
         </Reveal>
-      </section>
+      </section> */}
+      <div className=" relative">
+        <section className="content-shell  grid gap-10 border-t border-line py-20 md:grid-cols-2 md:py-28">
+          <AnimatedGridBackground></AnimatedGridBackground>
+          <Reveal className="rounded-lg border border-line bg-surface p-8 md:p-10">
+            <h2 className="font-dm-sans text-3xl font-semibold text-aqua">Mission</h2>
+            <p className="mt-4 text-fg-dim text-xl">
+              To empower people and businesses with transformative, intelligent
+              and future-ready digital solutions, delivered through disciplined
+              engineering and genuine partnership.
+            </p>
+            <ul className="mt-6 space-y-3 text-lg marker:text-aqua list-disc list-inside  text-fg-dim">
+              <li>Deliver reliable, high-quality products tailored to client success.</li>
+              <li>Advance applied work in AI, data science and automation.</li>
+              <li>Support sustainable, ethical ways of building software.</li>
+              <li>Build long-term partnerships across borders.</li>
+            </ul>
+          </Reveal>
+          <Reveal className="rounded-lg border border-line bg-surface p-8 md:p-10">
+            <h2 className="font-display text-3xl font-semibold text-aqua">Vision</h2>
+            <p className="mt-4 text-fg-dim text-xl">
+              To become one of South Asia&rsquo;s most trusted, research-driven
+              technology partners &mdash; shaping how intelligent systems and
+              thoughtful design work together.
+            </p>
+            <ul className="mt-6 space-y-3 text-lg marker:text-aqua list-disc list-inside  text-fg-dim">
+              <li>Earn a reputation for reliability before scale.</li>
+              <li>Lead in applied research, not just implementation.</li>
+              <li>Contribute to Bangladesh&rsquo;s growing technology sector.</li>
+              <li>Mentor the next generation of engineers and researchers.</li>
+            </ul>
+          </Reveal>
+        </section>
+      </div>
       <section className="section-light">
         <div className="content-shell py-20 md:py-28">
           <Reveal className="mb-20">

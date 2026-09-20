@@ -42,7 +42,7 @@ const badges = [
   "/Img/m.png",
   "/Img/s.jpeg",
   "/Img/c.jpeg"
-  
+
 ];
 
 export default function Hero() {
@@ -77,14 +77,31 @@ export default function Hero() {
   return (
     <section
       ref={scopeRef}
-      className="relative flex min-h-dvh pt-40 overflow-hidden bg-[#E4E2DD] text-zinc-900"
+      className="relative flex min-h-dvh w-full flex-col overflow-hidden bg-[#E4E2DD] pt-28 text-zinc-900 sm:pt-32 lg:pt-40"
     >
-      {/* Full-height, 40%-width image panel — this IS the right side of the
-          hero now, not a card floating inside it. Desktop only; mobile gets
-          a smaller floating-card version further down. */}
+      {/*
+        Full-height, ~30%-width image panel — this IS the right side of the
+        hero now, not a card floating inside it. Desktop only; mobile gets
+        a smaller floating-card version further down.
+
+        Fixes vs. the original:
+        - Fixed `right-10 bottom-10` (40px) offsets didn't scale with the
+          effective viewport at browser zoom, so at 150–200% zoom the panel
+          could sit too close to (or collide with) the text column. They're
+          now fluid (`clamp`) so the gap shrinks gracefully instead of
+          staying a fixed 40px on a much narrower effective viewport.
+        - `w-[30%]` had no floor/ceiling, so on very wide screens it could
+          get enormous, and on intermediate widths just below `lg` (via
+          zoom) it could get uncomfortably small. `w-[clamp(...)]` keeps it
+          within a sane range at every width.
+      */}
       <div
         data-hero-in
-        className="absolute bottom-10 right-10 rounded-3xl overflow-hidden  hidden w-[30%] border-2 border-zinc-600 aspect-video lg:block "
+        className="absolute z-0 hidden aspect-video w-[clamp(260px,30vw,520px)] overflow-hidden rounded-3xl border-2 border-zinc-600 lg:block"
+        style={{
+          right: "clamp(1rem, 2.5vw, 2.5rem)",
+          bottom: "clamp(1rem, 2.5vw, 2.5rem)",
+        }}
       >
         <HeroVisualSlider
           slides={heroSlides}
@@ -92,19 +109,37 @@ export default function Hero() {
           reduced={reduced}
           duration={ROTATOR_TIMING.duration}
           ease={ROTATOR_TIMING.ease}
-          className="h-full rounded-2xl w-full"
+          className="h-full w-full rounded-2xl"
         />
       </div>
 
-      
-
-      {/* Content */}
-      <div className="  z-10 w-full  px-5 md:px-[6vw]  ">
-        <div className="lg:max-w-[100%]">
-          <h1 className=" xl:leading-36 font-black font-fringe text-balance text-zinc-900 text-6xl md:text-[6rem] lg:text-[7rem] xl:text-[10rem]">
-            <span data-hero-in className="block le">
-
-              We design  <br /> We build{" "}
+      {/* Content — a flex column that fills the section, so the bottom
+          block below is pushed to the bottom with `lg:mt-auto` instead of
+          being absolutely positioned. This is the main zoom fix: with
+          absolute positioning, if the heading wrapped onto extra lines at
+          an odd zoom level it could grow tall enough to run into the
+          panel/paragraph below, since those were pinned to a fixed
+          `bottom-10` regardless of how tall the heading became. In normal
+          flow, the bottom block always renders after the heading, so it
+          can never overlap it. */}
+      <div className="relative z-10 flex  w-full flex-1 flex-col px-5 md:px-[6vw]">
+        <div className="flex w-full flex-1 flex-col lg:max-w-[100%]">
+          <h1
+            className="max-w-full text-balance font-black font-fringe text-zinc-900"
+            style={{
+              // Fluid clamp in place of the stepped
+              // text-6xl md:text-[6rem] lg:text-[7rem] xl:text-[10rem]
+              // sizes. Endpoints match the old sizes at mobile (~3.5rem)
+              // and xl (10rem), but now scale continuously with the
+              // effective viewport width instead of jumping at
+              // breakpoints — which is what makes it hold up at 125% /
+              // 150% / 175% / 200% zoom and at widths between breakpoints.
+              fontSize: "clamp(2rem, 0.5rem + 11.5vw, 8rem)",
+              lineHeight: 0.95,
+            }}
+          >
+            <span data-hero-in className="block">
+              We design <br /> We build{" "}
               <WordRotator
                 words={words}
                 bus={bus}
@@ -126,24 +161,37 @@ export default function Hero() {
               reduced={reduced}
               duration={ROTATOR_TIMING.duration}
               ease={ROTATOR_TIMING.ease}
-              className="lg:mx-auto aspect-[7/3] max-w-sm md:aspect-[10/5] lg:aspect-[16/9]"
-              
+              className="aspect-[7/3] max-w-sm md:aspect-[10/5] lg:mx-auto lg:aspect-[16/9]"
             />
           </div>
 
-          <div className=" lg:absolute bottom-10">
-            <p data-hero-in className="mt-8 lg:max-w-xl xl:max-w-3xl text-xl md:text-2xl font-semibold text-zinc-600">
-              From high-performance websites and custom software to AI-powered
-              systems and digital products, we engineer technology that turns
-              ideas into meaningful experiences, smarter operations, and
-              lasting business value.
+          {/*
+            Was `lg:absolute bottom-10` with no horizontal anchor. Now part
+            of normal flow, pushed to the bottom of the flex column with
+            `lg:mt-auto` so it visually sits at the bottom-left the same
+            way it used to — but it can never overlap the heading or the
+            image panel, because it's no longer taken out of flow.
+
+            The width cap (`lg:max-w-[60%] xl:max-w-[55%]`) keeps this
+            whole block — paragraph, badges and stat text — clear of the
+            image panel's reserved right-hand space at every width and
+            zoom level, instead of relying only on the paragraph's own
+            max-width (which, at odd zoom levels, could extend far enough
+            right to run under the image).
+          */}
+          <div className="mt-10 lg:mt-auto lg:max-w-[60%] xl:max-w-[55%]">
+            <p
+              data-hero-in
+              className="max-w-prose text-xl font-semibold text-zinc-600 md:text-2xl"
+            >
+             Trusted across 7 countries with 100+ projects delivered, TechOf Solution builds scalable technology designed to perform today and evolve for tomorrow.
             </p>
-            <div className="flex mt-15 items-center gap-4">
+            <div className="mt-15 flex flex-wrap items-center gap-4 lg:mt-15">
               <div className="flex -space-x-2">
                 {badges.map((src, i) => (
                   <span
                     key={i}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-400 bg-white overflow-hidden"
+                    className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-zinc-400 bg-white"
                   >
                     <Image
                       src={src}
@@ -157,14 +205,12 @@ export default function Hero() {
               </div>
 
               {projectsStat && (
-                <span className="whitespace-nowrap text-xl font-medium text-aqua">
-                  100+
-                   Projects Delivered
+                <span className="text-xl font-medium text-aqua">
+                  100+ Projects Delivered
                 </span>
               )}
             </div>
           </div>
-
 
           {/* <div data-hero-in className="mt-8 flex flex-wrap items-center gap-3">
             <MagneticButton>

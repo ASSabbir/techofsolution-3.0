@@ -14,6 +14,11 @@ export const team: TeamMember[] = [
   },
   
   {
+    name: "Engr. Tanvir Hassan Turan",
+    role: "Sales",
+    image: "/Img/2.png",
+  },
+  {
     name: "Abdullah Al Noman",
     role: "AI / ML Engineer",
     image: "/Img/35.jpg",
@@ -43,7 +48,7 @@ export const testimonials: Testimonial[] = [
       "Amazing service and a super clean build. The team understood exactly what our studio needed to present its work.",
     name: "Nazmul Hasan",
     role: "CEO, 7007 Studio",
-    image: "/assets/team/review-1.svg",
+    image: "/Img/client/img1.png",
   },
   {
     quote:

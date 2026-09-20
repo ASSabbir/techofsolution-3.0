@@ -68,8 +68,9 @@ export default function Testimonials() {
       <AnimatedGridBackground></AnimatedGridBackground>
       <Reveal className="mb-12 flex items-end justify-between">
         <div>
-          <p className="text-xl text-accent mb-4">Client feedback</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-dm-sans font-semibold">What clients say</h2>
+          <p className="text-xl text-accent mb-4">Client Perspectives
+</p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-dm-sans font-semibold">Their Experience, Our Proof.</h2>
         </div>
         <div className="hidden gap-2 sm:flex">
           <button

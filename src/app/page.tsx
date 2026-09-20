@@ -27,10 +27,10 @@ export default function HomePage() {
       <Hero />
       {/* <TrustedByMarquee /> */}
       <ScrollRevealHeading
-        text="Tech Of Solution, web-first digital agency building modern, fast, and scalable digital platforms. We develop MERN-based applications and high-impact animated portfolios. Business websites, LMS systems, and e-commerce solutions crafted for performance, usability, and strong SEO."
-        highlightWords={['web-first']}
+        text="TechOf Solution, a technology company delivering modern, scalable solutions across web, software, automation, data, and research. We build high-performance digital platforms, intelligent business systems, and research-driven solutions engineered for efficiency, usability, and growth."
+        highlightWords={['web, software, automation, data, and research']}
         className="px-5 md:px-[6vw] py-10 md:py-20 xl:py-30 section-light "
-        textClassName="text-4xl md:text-5xl xl:text-6xl py-  text-wrap font-medium leading-[1.25]"
+        textClassName="text-4xl  2xl:text-6xl py-  text-wrap font-medium leading-[1.25]"
         baseColor="#cfcfdb"    // zinc-400 — dim starting state on light bg
         revealColor="#18181b"
       />
@@ -41,15 +41,16 @@ export default function HomePage() {
         src="/Img/0912.mp4"
         poster="/Img/img3.png"
       />
-      <BigMarquee label="Engineered with intent" />
+      <BigMarquee label="An Experienced, Specialized & Innovative Team." />
       {/* <FeaturedWork /> */}
 
 
       <TeamGrid />
+      <StatsBand />
       <Testimonials />
 
 
-      <StatsBand />
+      
       {/* <section className="relative overflow-hidden bg-black h-screen">
         <AnimatedGridBackground></AnimatedGridBackground>
       </section> */}

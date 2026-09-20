@@ -5,6 +5,8 @@ import PageHeader from "@/components/PageHeader";
 import WorksGrid from "@/components/WorksGrid";
 import FaqAccordion from "@/components/FaqAccordion";
 import Reveal from "@/components/Reveal";
+import AnimatedGridBackground from "@/components/Animatedgridbackground";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Our Work — Websites, Software, AI/ML & Research Projects",
@@ -47,14 +49,18 @@ export default function WorksPage() {
         />
       </div>
 
-      <section className="content-shell pb-20 pt-20 sm:pb-24 md:pb-32">
-        <WorksGrid />
+      <section className="relative">
+        <AnimatedGridBackground></AnimatedGridBackground>
+        <div className="content-shell pb-20 pt-20 sm:pb-24 md:pb-32">
+
+          <WorksGrid />
+        </div>
       </section>
 
       <section className="section-light">
         <div className="content-shell py-16 sm:py-20 md:py-28">
           <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-            <Reveal className="lg:sticky lg:top-28 lg:self-start">
+            <div className="lg:sticky lg:top-28 lg:self-start">
               <h2 className="font-display text-3xl font-semibold sm:text-4xl">Common questions</h2>
               <p className="mt-4 max-w-sm text-base text-muted">
                 Can&apos;t find your answer here?{" "}
@@ -63,44 +69,95 @@ export default function WorksPage() {
                 </Link>{" "}
                 and we&apos;ll get back to you within a day.
               </p>
-            </Reveal>
-            <Reveal>
+            </div>
+            <div>
               <FaqAccordion items={faqs} />
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
+      <section className="content-shell border-t border-line py-20 md:py-28">
+              <Reveal className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+                <div>
+      
+                  <p className="text-xl text-accent mb-4"> Giving Back</p>
+      
+                  <h2 className="font-dm-sans text-3xl md:text-6xl font-semibold leading-tight mb-6">
+                    Before the defense, we showed up.
+                  </h2>
+      
+                  <span className="inline-block rounded-full border bg-accent border-line-strong px-4 py-1.5 text-sm font-black text-accent-ink mb-6">
+                    Daffodil International University — 64th Batch, CSE
+                  </span>
+      
+                  <p className="text-fg-dim leading-relaxed mb-8 text-lg max-w-xl">
+                    Final-year defense pressure is real — we&rsquo;ve been there too. So
+                    our team sat down with the 64th batch CSE students before their big
+                    day: what a defense panel actually looks for, how to structure a
+                    research paper, and where most projects fall short. Our door stays
+                    open for anyone who needs a review, guidance, or just someone to
+                    talk it through with.
+                  </p>
+      
+                  <a
+                    href="https://www.facebook.com/reel/1606791157128452"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 text-sm font-medium text-fg hover:border-accent hover:text-accent transition-colors"
+                  >
+                    ▶ Watch the Session
+                  </a>
+                </div>
+      
+                <div className="relative rounded-lg overflow-hidden border border-line aspect-video">
+                  <Image
+                    src="/Img/25.jpg"
+                    alt="Masterclass on Final Year Project Mastery — Tech Of Solutions"
+                    fill
+                    className="object-cover"
+                  // sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <span className="absolute top-2 left-2 bg-surface/95 text-fg text-xs font-medium uppercase tracking-wide px-3 py-1.5 rounded-full border border-line">
+                    64th Batch, CSE
+                  </span>
+                </div>
+              </Reveal>
+            </section>
 
-      <section className="content-shell py-16 sm:py-20 md:py-28">
-        <Reveal>
-          <div className="rounded-3xl border border-line-strong bg-surface px-6 py-14 text-center sm:px-12 md:py-20">
-            <h2 className="mx-auto max-w-2xl text-balance font-display text-3xl font-semibold sm:text-4xl md:text-5xl">
-              Want results like these?
-            </h2>
-            <p className="mx-auto mt-4 max-w-md text-base text-muted">
-              Tell us what you&apos;re building and we&apos;ll come back with a plan and a quote.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link
-                href="/contact"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-ink transition-transform duration-300 hover:scale-[1.03] active:scale-95 sm:w-auto"
-              >
-                Start a project
-                <ArrowUpRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex w-full items-center justify-center rounded-full border border-line-strong px-7 py-3.5 text-sm font-semibold text-fg transition-colors duration-300 hover:border-accent hover:text-accent sm:w-auto"
-              >
-                See our services
-              </Link>
+      <section className="relative bg-zinc-950">
+
+        <div className="content-shell py-16  sm:py-20 md:py-28">
+
+          <div>
+
+            <div className="rounded-3xl border glass-card border-line-strong  px-6 py-14 text-center sm:px-12 md:py-20">
+              <h2 className="mx-auto max-w-2xl text-balance font-display text-3xl font-semibold sm:text-4xl md:text-5xl">
+                Want results like these?
+              </h2>
+              <p className="mx-auto mt-4 max-w-md text-base text-muted">
+                Tell us what you&apos;re building and we&apos;ll come back with a plan and a quote.
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-ink transition-transform duration-300 hover:scale-[1.03] active:scale-95 sm:w-auto"
+                >
+                  Start a project
+                  <ArrowUpRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-line-strong px-7 py-3.5 text-sm font-semibold text-fg transition-colors duration-300 hover:border-accent hover:text-accent sm:w-auto"
+                >
+                  See our services
+                </Link>
+              </div>
             </div>
           </div>
-        </Reveal>
-      </section>
+        </div></section>
     </>
   );
 }

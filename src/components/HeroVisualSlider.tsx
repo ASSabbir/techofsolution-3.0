@@ -107,10 +107,7 @@ export default function HeroVisualSlider({
   }, [bus, duration, ease, reduced]);
 
   return (
-    <div
-      className={`relative w-full h-full overflow-hidden r ${className}`}
-      
-    >
+    <div className={`relative h-full w-full overflow-hidden ${className}`}>
       {/* soft ambient glow behind the stack — helps it feel like light
           emerging from the scene rather than an image pasted on top */}
       <div
