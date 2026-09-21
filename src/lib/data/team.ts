@@ -15,24 +15,22 @@ export const team: TeamMember[] = [
   
   {
     name: "Engr. Tanvir Hassan Turan",
-    role: "Sales",
+    role: "Head, Business Development Strategist",
     image: "/Img/2.png",
   },
   {
-    name: "Abdullah Al Noman",
-    role: "AI / ML Engineer",
-    image: "/Img/35.jpg",
+    name: "Anar Koli",
+    role: "Consultant Sales & Marketing",
+    image: "/Img/ss.png",
   },
   {
-    name: "Atik Al Sabbir",
-    role: "Software Engineer",
-    image: "/Img/atik al sabbir.webp",
+    name: "SK. MD. Aliraz",
+    role: "Head, Brand & Communications",
+    image: "/Img/aliraz.jpeg",
   },
-  {
-    name: "Mustazir Billah",
-    role: "Software Engineer",
-    image: "/Img/a.jpg",
-  },
+  
+  
+  
 ];
 
 export type Testimonial = {
@@ -45,37 +43,66 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Amazing service and a super clean build. The team understood exactly what our studio needed to present its work.",
+      "A professional team with a clear understanding of what businesses need. The entire process was smooth, structured, and handled with great attention to detail.",
+    name: "Kabir Ahmed",
+    role: "Chairman, Conveyor Group | Former President, BAFFA",
+    image: "/Img/client/s.jpeg",
+  },
+
+  {
+    quote:
+      "Working with the team was a genuinely positive experience. They understood our vision and translated it into a polished digital presence with great attention to detail.",
+    name: "Mohsena Munna, FCCA",
+    role: "Founder & CEO, De Tempête",
+    image: "/Img/client/a.jfif",
+  },
+
+  {
+    quote:
+      "They demonstrated strong technical understanding and a professional approach throughout the project. The final result reflected both quality and careful execution.",
+    name: "Eng. Md. Anwarul Haque",
+    role: "Managing Director, Texco Tech",
+    image: "/Img/client/sa.jpeg",
+  },
+
+  {
+    quote:
+      "The team was responsive, professional, and attentive to every detail. They delivered a solution that aligned well with our business requirements.",
+    name: "Barrister Sameer Satter",
+    role: "CEO & Founder, Sattar & Co. | Bangladesh",
+    image: "/Img/client/shamir_1.webp",
+  },
+
+  {
+    quote:
+      "A thoughtful approach from start to finish. The team took the time to understand our requirements and delivered a refined digital experience.",
     name: "Nazmul Hasan",
     role: "CEO, 7007 Studio",
     image: "/Img/client/img1.png",
   },
+
   {
     quote:
-      "Outstanding work, delivered on time with real attention to detail from discovery through to launch.",
-    name: "James Walker",
-    role: "Product Manager, Nexora Digital (USA)",
-    image: "/assets/team/review-2.svg",
-  },
-  {
-    quote:
-      "Top-notch animation and a genuinely smooth interface — our customers noticed the difference immediately.",
-    name: "MD. Emon",
-    role: "Founder, Schedule Solution",
-    image: "/assets/team/review-3.svg",
-  },
-  {
-    quote:
-      "Very professional and fast delivery. A pleasure to collaborate with from the first call.",
+      "The attention to detail and smooth execution really stood out. Communication was clear throughout, and the final experience felt modern and well considered.",
     name: "Lucas Martin",
-    role: "Operations Director, InnovateX (France)",
-    image: "/assets/team/review-4.svg",
+    role: "Operations Director, InnovateX | France",
+    image: "https://udayton.edu/directory/artssciences/religiousstudies/images/martin-lucas-2023.jpg",
   },
+
   {
-    quote: "Quick delivery without cutting corners on quality.",
-    name: "Sadia Rahman",
-    role: "Marketing Director, EcomHub",
-    image: "/assets/team/review-5.svg",
+    quote:
+      "Professional collaboration, clear communication, and a strong focus on quality. The team delivered exactly what we needed for our digital presence.",
+    name: "Daniel Morgan",
+    role: "Managing Director, Vertex Solutions | United Kingdom",
+    image: "https://images.jg-cdn.com/image/eeb2d6b6-7f0c-42db-8881-467f676d2511.jpg",
+  },
+
+  {
+    quote:
+      "From the initial discussion to the final delivery, everything was handled with care and professionalism. The result exceeded our expectations.",
+    name: "Alexandre Laurent",
+    role: "Director, Laurent Consulting | France",
+    image: "https://i1.rgstatic.net/ii/profile.image/959623725056006-1605803533769_Q512/Alexandre-Laurent.jpg",
   },
 ];
 
@@ -95,5 +122,7 @@ export const clients: Client[] = [
   { name: "Khulna Hardware", logo: "/Img/partners/images.webp" },
   { name: "De Tempete", logo: "/Img/partners/1.jpeg" },
   { name: "RADIANT", logo: "/Img/partners/2.jpeg" },
-  { name: "Sattar & Co.", logo: "/Img/partners/s.jpeg" },
+  { name: "Sattar & Co.", logo: "/Img/partners/blogo.png" },
+  { name: "Bangladesh Industrial X-Ray (BIX).", logo: "/Img/partners/BixLogo.jpg" },
+  { name: "Bangladesh Industrial X-Ray (BIX).", logo: "/Img/partners/3.jpeg" },
 ];

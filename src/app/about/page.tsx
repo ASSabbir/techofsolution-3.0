@@ -25,21 +25,24 @@ const values = [
   { icon: TrendingUp, title: "Growth-chasing", body: "We stay students of the craft, always learning and levelling up alongside the tools we use." },
 ];
 const experience = [
-  { title: "Founder & CEO", company: "TechOf Solution", period: "Jul 2026 – Present · 3 mos" },
-  { title: "Chief Executive Officer", company: "Radiant Communications Ltd.", period: "Nov 2024 – Present · 1 yr 11 mos" },
-  { title: "Founder & CEO", company: "TER Infotech (Full-time)", period: "Jan 2024 – Jun 2026 · 2 yrs 6 mos" },
-  { title: "Director", company: "Dhaka Chamber of Commerce and Industry", period: "Dec 2021 – Dec 2024 · 3 yrs 1 mo" },
-  { title: "Sr. Vice President ", company: "Dhaka Chamber of Commerce and Industry", period: "Dec 2022 – Dec 2023 · 1 yr 1 mo" },
+  { title: "Founder & CEO", company: "TechOf Solution", period: "" },
+  { title: "Chief Executive Officer", company: "Radiant Communications Ltd.", period: "" },
+  // { title: "Founder & CEO", company: "TER Infotech (Full-time)", period: "Jan 2024 – Jun 2026 · 2 yrs 6 mos" },
+   { title: "Managing Director", company: "BDCOM Online Ltd.", period: "Mar 2012 – Dec 2023 " },
+  //  { title: "Executive Director, Sales & Marketing", company: "BDCOM Online Ltd.", period: "Feb 2010 – Nov 2010 " },
+  
+  { title: "Sr. Vice President ", company: "Dhaka Chamber of Commerce and Industry", period: "Dec 2022 – Dec 2023 " },
+  { title: "Director", company: "Dhaka Chamber of Commerce and Industry", period: "Dec 2021 – Dec 2024 " },
   // { title: "Convenor, IT, ICT, Telecom & 4th IR Technology Standing Committee – 2021", company: "Dhaka Chamber of Commerce and Industry", period: "Jan 2021 – Dec 2021 · 1 yr" },
   // { title: "Joint Convenor, ICT and Telecom Standing Committee – 2020", company: "Dhaka Chamber of Commerce and Industry", period: "Jan 2020 – Dec 2020 · 1 yr" },
   // { title: "Joint Convenor, ICT and Telecom Standing Committee – 2019", company: "Dhaka Chamber of Commerce and Industry", period: "Jan 2019 – Dec 2019 · 1 yr" },
   // { title: "Joint Convenor, Telecom, ICT and IP Rights Standing Committee – 2018", company: "Dhaka Chamber of Commerce and Industry", period: "Jan 2018 – Dec 2018 · 1 yr" },
-  { title: "Managing Director", company: "BDCOM Online Ltd.", period: "Mar 2012 – Dec 2023 · 11 yrs 10 mos" },
+ 
   // { title: "Chief Operating Officer", company: "BDCOM Online Ltd.", period: "Nov 2011 – Mar 2012 · 5 mos" },
   // { title: "Chief Operating Officer (COO)", company: "BDCOM Online Ltd.", period: "Nov 2010 – Mar 2012 · 1 yr 5 mos" },
   // { title: "Director of Marketing Operations", company: "BDCOM Online Ltd.", period: "Feb 2010 – Oct 2011 · 1 yr 9 mos" },
-  { title: "Executive Director, Sales & Marketing", company: "BDCOM Online Ltd.", period: "Feb 2010 – Nov 2010 · 10 mos" },
-  { title: "Chief Operating Officer", company: "ALAP Communication Ltd.", period: "Feb 2007 – Jan 2010 · 3 yrs" },
+  
+  { title: "Chief Operating Officer", company: "ALAP Communication Ltd.", period: "Feb 2007 – Jan 2010 " },
 ];
 const meetings = [
   { src: "/Img/atik_al_sabbir.webp", caption: "Kickoff — aligning on scope and goals" },
@@ -51,8 +54,8 @@ const meetings = [
 ];
 
 const achievementImages = [
-  "/Img/5.png",
-  "/Img/6.webp",
+  "/Img/aa.jpeg",
+  "/Img/sds.jpeg",
   "/Img/sd.webp",
 
 ];
@@ -110,7 +113,7 @@ export default function AboutPage() {
                 <li key={i} className="border-l-2 border-line pl-4">
                   <p className="font-medium text-accent">{exp.title}</p>
                   <p className="text-sm text-a">{exp.company}</p>
-                  <p className="text-xs text-fg-dim/70">{exp.period}</p>
+                  {/* <p className="text-xs text-fg-dim/70">{exp.period}</p> */}
                 </li>
               ))}
             </ul>
@@ -149,7 +152,7 @@ export default function AboutPage() {
 
           <Reveal stagger={0.08} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {values.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="rounded-md border border-line bg-surface p-7">
+              <div key={title} className="rounded-md border border-aqua bg-surface p-7">
                 <Icon className="text-aqua" size={26} />
                 <h3 className="mt-4 font-display text-lg font-semibold">{title}</h3>
                 <p className="mt-2 text-sm text-fg-dim">{body}</p>

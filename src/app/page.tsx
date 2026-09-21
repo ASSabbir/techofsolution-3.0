@@ -26,16 +26,17 @@ export default function HomePage() {
     <>
       <Hero />
       {/* <TrustedByMarquee /> */}
+      <BigClientsMarquee direction="right" speed={50} />
       <ScrollRevealHeading
         text="TechOf Solution, a technology company delivering modern, scalable solutions across web, software, automation, data, and research. We build high-performance digital platforms, intelligent business systems, and research-driven solutions engineered for efficiency, usability, and growth."
         highlightWords={['web, software, automation, data, and research']}
-        className="px-5 md:px-[6vw] py-10 md:py-20 xl:py-30 section-light "
+        className="px-5 md:px-[6vw] py-10 md:py-20 xl:py-30 bg-zinc-950 "
         textClassName="text-4xl  2xl:text-6xl py-  text-wrap font-medium leading-[1.25]"
-        baseColor="#cfcfdb"    // zinc-400 — dim starting state on light bg
-        revealColor="#18181b"
+        baseColor="#18181b"    // zinc-400 — dim starting state on light bg
+        revealColor="#fff"
       />
       
-      <BigClientsMarquee  direction="right" speed={50} />
+      
       <ServicesShowcase />
       <ScrollExpandVideo
         src="/Img/0912.mp4"

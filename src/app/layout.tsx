@@ -9,7 +9,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/data/site";
 import { Geist } from "next/font/google";
-
+import Preloader from "@/components/Preloader";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     images: ["/assets/og-image.svg"],
   },
   icons: {
-    icon: "/assets/logo.svg",
-    shortcut: "/assets/logo.svg",
+    icon: "/Img/logo.png",
+    shortcut: "/Img/logo.png",
   },
   robots: { index: true, follow: true },
 };
@@ -56,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={"font-manrope"} >
       <body className="grain font-manrope">
+        <Preloader />
         <JsonLd />
         <SmoothScroll>
           <Navbar />

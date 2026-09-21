@@ -4,10 +4,10 @@ import Reveal from "@/components/Reveal";
 
 export default function TeamGrid() {
   return (
-    <section className="section-light">
+    <section className="">
       <div className="content-shell py-24 md:py-32">
         <Reveal className="">
-          <p className="text-xl text-aqua mb-4">The Minds Behind TechOf</p>
+          <p className="text-xl text-accent mb-4">The Minds Behind TechOf</p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-dm-sans font-semibold text-balance">
 
             Experienced specialists turning ideas into  scalable solutions.

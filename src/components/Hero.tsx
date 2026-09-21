@@ -60,19 +60,34 @@ export default function Hero() {
   }
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const targets = gsap.utils.toArray<HTMLElement>("[data-hero-in]");
-      gsap.set(targets, { y: HERO_TIMING.distance, opacity: 0 });
-      gsap.timeline({ delay: HERO_TIMING.delay }).to(targets, {
-        y: 0,
-        opacity: 1,
-        duration: HERO_TIMING.duration,
-        ease: HERO_TIMING.ease,
-        stagger: HERO_TIMING.stagger,
-      });
-    }, scopeRef);
-    return () => ctx.revert();
-  }, []);
+  // If the preloader is running, hold the intro until it says "reveal"
+  const waiting = document.documentElement.dataset.preloader === "running";
+  let tl: gsap.core.Timeline | undefined;
+  const play = () => tl?.play();
+
+  const ctx = gsap.context(() => {
+    const targets = gsap.utils.toArray<HTMLElement>("[data-hero-in]");
+    gsap.set(targets, { y: HERO_TIMING.distance, opacity: 0 });
+    tl = gsap.timeline({
+      paused: waiting,
+      delay: waiting ? 0 : HERO_TIMING.delay,
+    });
+    tl.to(targets, {
+      y: 0,
+      opacity: 1,
+      duration: HERO_TIMING.duration,
+      ease: HERO_TIMING.ease,
+      stagger: HERO_TIMING.stagger,
+    });
+  }, scopeRef);
+
+  if (waiting) window.addEventListener("preloader:reveal", play, { once: true });
+
+  return () => {
+    window.removeEventListener("preloader:reveal", play);
+    ctx.revert();
+  };
+}, []);
 
   return (
     <section

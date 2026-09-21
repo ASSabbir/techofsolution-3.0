@@ -38,10 +38,10 @@ const icons: Record<string, LucideIcon> = {
 
 // ── ⚠️ Replace these with your real links ─────────────────────────────
 const SOCIAL_LINKS = {
-  facebook: "https://facebook.com/your-page",
-  linkedin: "https://linkedin.com/company/your-company",
+  facebook: "https://www.facebook.com/techofsolution",
+  linkedin: "https://linkedin.com/company/techofsolution",
   // country code + number, no "+" or spaces  (e.g. 8801712345678)
-  whatsapp: "https://wa.me/8801XXXXXXXXX",
+  whatsapp: "https://wa.me/8801798392494",
 };
 
 // Center nav pulls from the project's existing nav data — drop the home
@@ -597,7 +597,7 @@ export default function Navbar() {
           className="flex w-fit items-center justify-self-start"
           aria-label="TechOf Solution home"
         >
-          <Image src="/Img/logo2.png" alt="TechOf Solution" width={200} height={34} priority />
+          <Image src="/Img/logo2.png" alt="TechOf Solution" className="h-auto w-[120px] sm:w-[160px] md:w-[180px]" width={200} height={34} priority />
         </Link>
 
         {/* CENTER */}

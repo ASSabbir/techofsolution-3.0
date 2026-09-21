@@ -70,7 +70,7 @@ export default function Testimonials() {
         <div>
           <p className="text-xl text-accent mb-4">Client Perspectives
 </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-dm-sans font-semibold">Their Experience, Our Proof.</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-dm-sans font-semibold">Customer Experience<br/> Our Proof.</h2>
         </div>
         <div className="hidden gap-2 sm:flex">
           <button
@@ -98,7 +98,7 @@ export default function Testimonials() {
         <Quote className="text-accent" size={32} />
 
         <div ref={contentRef}>
-          <p className="mt-6 max-w-7xl text-2xl leading-snug text-fg sm:text-3xl md:text-4xl text-balance">
+          <p className="mt-6  text-2xl leading-snug text-fg sm:text-3xl md:text-4xl ">
             &ldquo;{current.quote}&rdquo;
           </p>
           <div className="mt-8 flex items-center gap-4">

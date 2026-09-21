@@ -42,7 +42,7 @@ export default function StatsBand() {
   }, []);
 
   return (
-    <section ref={ref} className="border-y border-line section-light">
+    <section ref={ref} className="border-y border-line section">
       <div className="content-shell grid grid-cols-2 gap-8 py-16 md:grid-cols-4 md:py-20">
         {stats.map((s) => (
           <div key={s.label} className="flex flex-col items-center justify-center">
@@ -52,7 +52,7 @@ export default function StatsBand() {
               </span>
               {s.suffix}
             </p>
-            <p className="mt-2 text-xl text-aqua">{s.label}</p>
+            <p className="mt-2 text-xl text-center text-accent">{s.label}</p>
           </div>
         ))}
       </div>

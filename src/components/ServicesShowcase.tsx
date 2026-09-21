@@ -6,11 +6,11 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/data/services";
-import img1 from "../../public/Img/service/web2.webp";
-import img2 from "../../public/Img/service/sof2.webp";
-import img3 from "../../public/Img/service/ai.png";
-import img4 from "../../public/Img/service/re.png";
-import img5 from "../../public/Img/service/data.png";
+import img1 from "../../public/Img/service/as.webp";
+import img2 from "../../public/Img/service/as.jpg";
+import img3 from "../../public/Img/service/sd.webp";
+import img4 from "../../public/Img/service/asd.webp";
+import img5 from "../../public/Img/service/s.png";
 
 // Order must match the services array — services[0] gets serviceImages[0], etc.
 const serviceImages = [img1, img2, img3, img4, img5];
@@ -273,7 +273,7 @@ export default function ServicesShowcase() {
                 key={service.slug}
                 href={`/services/${service.slug}`}
                 onMouseEnter={(e) => enter(i, e)}
-                className="group relative flex items-center justify-between gap-6 overflow-hidden border-b border-zinc-200 px-5 py-8 md:px-[6vw] md:py-14"
+                className="group relative flex items-center justify-between gap-6 overflow-hidden border-b border-zinc-200 px-5 py-8 md:px-[6vw] md:py-6"
               >
                 {/* Aqua background that slides up and covers the row */}
                 <div
@@ -296,7 +296,7 @@ export default function ServicesShowcase() {
                     ref={(el) => {
                       titleRefs.current[i] = el;
                     }}
-                    className="font-dm text-3xl font-semibold leading-tight will-change-transform sm:text-4xl md:text-5xl"
+                    className="font-dm text-3xl font-semibold leading-tight will-change-transform sm:text-4xl md:text-4xl"
                   >
                     {service.name}
                   </h3>
@@ -354,7 +354,7 @@ export default function ServicesShowcase() {
       <div
         ref={previewRef}
         aria-hidden="true"
-        className="pointer-events-none fixed left-70 top-0 z-30 hidden h-[180px] w-[200px] overflow-hidden rounded-sm shadow-2xl ring-1 ring-black/10 will-change-transform md:block lg:h-[240px] lg:w-[240px]"
+        className="pointer-events-none fixed left-200 top-0 z-30 hidden h-[180px] w-[200px] overflow-hidden rounded-sm shadow-2xl ring-1 ring-black/10 will-change-transform md:block lg:h-[240px] lg:w-[240px]"
       >
         {serviceImages.slice(0, services.length).map((src, i) => (
           <div

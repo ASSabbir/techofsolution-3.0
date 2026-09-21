@@ -1,14 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: "export",
   images: {
-    formats: ["image/avif", "image/webp"],
-    dangerouslyAllowSVG: true,
-    contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-  },
-  async redirects() {
-    return [];
+    unoptimized: true, // no server = no image optimization API available
   },
 };
 

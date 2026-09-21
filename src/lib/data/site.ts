@@ -50,7 +50,7 @@ export const nav = [
 export type Stat = { value: number; suffix: string; label: string; decimal?: boolean };
 
 export const stats: Stat[] = [
-  { value: 20, suffix: "+", label: "Industrial Experience" },
+  { value: 20, suffix: "+", label: "Years Industry Experience" },
   { value: 100, suffix: "+", label: "Projects delivered" },
   { value: 7, suffix: "", label: "Countries served" },
   { value: 4.8, suffix: "", label: "Average client rating", decimal: true },

@@ -34,7 +34,7 @@ export default function ScrollRevealHeading({
   textClassName = 'text-4xl   lg:text-6xl font-medium leading-[1.15]',
   as = 'h1',
   baseColor = '#52525b', // zinc-600
-  revealColor = '#fafafa', // zinc-50
+  revealColor = '#fafafs', // zinc-50
   accentColor = '#21707F', // blue-400
 }: ScrollRevealHeadingProps) {
   const containerRef = useRef<HTMLDivElement>(null);

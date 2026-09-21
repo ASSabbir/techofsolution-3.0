@@ -7,7 +7,7 @@ export default function JsonLd() {
     name: site.legalName,
     alternateName: site.name,
     url: site.url,
-    logo: `${site.url}/assets/logo.svg`,
+    logo: `${site.url}/Img/logo.png`,
     image: `${site.url}/assets/og-image.svg`,
     description: site.description,
     email: site.email,

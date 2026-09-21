@@ -19,6 +19,60 @@ export const categoryLabels: Record<ProjectCategory, string> = {
 };
 
 export const projects: Project[] = [
+    {
+    slug: "sattar-and-co",
+    category: "website",
+    title: "Sattar & Co.",
+    client: "Law firm",
+    description:
+      "A refined digital presence for a leading law firm, combining editorial design, subtle motion and structured content to communicate expertise with clarity.",
+    image: "/Img/website/sds.png",
+    link: "https://sattarandco.com/",
+    featured: true,
+  },
+  {
+    slug: "de-tempete",
+    category: "website",
+    title: "De Tempête",
+    client: "Consulting & professional services",
+    description:
+      "A large-scale consulting platform bringing together insights, publications, resources and business content through a structured, content-driven experience.",
+    image: "/Img/website/de.png",
+    link: "https://detempete.uk/",
+    featured: true,
+  },
+    {
+    slug: "bangladesh-industrial-xray",
+    category: "website",
+    title: "Bangladesh Industrial X-Ray",
+    client: "Industrial inspection & NDT services",
+    description:
+      "A professional industrial inspection website presenting non-destructive testing services, technical expertise and solutions through a clear, modern digital experience.",
+    image: "/Img/website/bix.png",
+    link: "https://bix.techofsolution.com/",
+    featured: true,
+  },
+  {
+    slug: "texco-tech-erp",
+    category: "software",
+    title: "Texco Tech ERP",
+    client: "Business management platform",
+    description:
+      "An integrated ERP platform designed to streamline business operations, records, workflows and management processes through a centralized system.",
+    image: "/Img/software/image.png",
+    link: "#",
+    featured: true,
+  },
+  {
+    slug: "conveyor-ground-dining",
+    category: "software",
+    title: "Conveyor Ground Dining",
+    client: "Restaurant management",
+    description:
+      "A restaurant management system built to streamline dining operations, order management, billing and day-to-day business workflows from one platform.",
+    image: "/Img/software/a.png",
+    link: "#",
+  },
   {
     slug: "7007-studio",
     category: "website",
