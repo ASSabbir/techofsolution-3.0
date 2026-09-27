@@ -45,12 +45,14 @@ const experience = [
   { title: "Chief Operating Officer", company: "ALAP Communication Ltd.", period: "Feb 2007 – Jan 2010 " },
 ];
 const meetings = [
-  { src: "/Img/atik_al_sabbir.webp", caption: "Kickoff — aligning on scope and goals" },
-  { src: "/Img/atik_al_sabbir_with_bix.webp", caption: "Design review with the client team" },
-  { src: "/Img/13.webp", caption: "Working session — problem-solving together" },
-  { src: "/Img/21.jpg", caption: "Progress walkthrough before launch" },
-  { src: "/Img/sabbir.webp", caption: "Post-launch check-in" },
-  { src: "/Img/3.PNG", caption: "Post-launch check-in" },
+  { src: "/Img/atik_al_sabbir.webp", caption: "Meeting with Texco Tech" },
+  { src: "/Img/sabbir.webp", caption: "Sattar & Co. Production Session" },
+  { src: "/Img/atik_al_sabbir_with_bix.webp", caption: "Bix Strategy Discussion" },
+  { src: "/Img/clientphotos/sammersattr.webp", caption: "With Barrister Sameer Sattar" },
+  { src: "/Img/clientphotos/IMG_5085.webp", caption: "Meeting at RAOWA" },
+  { src: "/Img/21.jpg", caption: "ML Defense Discussion at DIU" },
+  { src: "/Img/clientphotos/grammenphone.webp", caption: "Grameenphone Visit" },
+  { src: "/Img/clientphotos/milex.webp", caption: "Milex Air ERP Discussion" },
 ];
 
 const achievementImages = [

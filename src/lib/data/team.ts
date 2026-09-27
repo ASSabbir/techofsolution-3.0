@@ -20,13 +20,33 @@ export const team: TeamMember[] = [
   },
   {
     name: "Anar Koli",
-    role: "Consultant Sales & Marketing",
+    role: "Head, Corporate Affairs",
     image: "/Img/ss.png",
   },
   {
     name: "SK. MD. Aliraz",
     role: "Head, Brand & Communications",
     image: "/Img/aliraz.jpeg",
+  },
+  {
+    name: "Abdullah Al Noman",
+    role: "AI / ML Engineer, R&D Lead",
+    image: "/Img/team/noman.webp",
+  },
+  {
+    name: "Atik Al Sabbir",
+    role: "Software Engineer, Lead Frontend",
+    image: "/Img/team/atik_al_sabbir.webp",
+  },
+  {
+    name: "S.M. Mustazir Billah",
+    role: "Software Engineer, Lead Backend",
+    image: "/Img/team/billah.webp",
+  },
+  {
+    name: "Rifat Tasnima",
+    role: "Head, Creative & Design",
+    image: "/Img/team/Tasnima.webp",
   },
   
   
